@@ -2,6 +2,7 @@ import React from "react";
 import sports from "../../../../assets/sports.jpg";
 import electric from "../../../../assets/electric.jpg";
 import scooty from "../../../../assets/scooty.jpg";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   return (
@@ -10,33 +11,39 @@ const Category = () => {
         Ouer Product Category
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <button
-          className="hero hover:shadow-2xl w-full bg-cover h-40 bg-blue-500 hover:bg-blue-600 rounded-lg text-5xl font-bold text-white"
-          style={{
-            backgroundImage: `url(${sports})`,
-          }}
-        >
-          <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-          <p>Sports</p>
-        </button>
-        <button
-          className="hero hover:shadow-2xl w-full bg-cover h-40 bg-blue-500 hover:bg-blue-600 rounded-lg text-5xl font-bold text-white"
-          style={{
-            backgroundImage: `url(${electric})`,
-          }}
-        >
-          <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-          <p>Electric</p>
-        </button>
-        <button
-          className="hero hover:shadow-2xl w-full bg-cover h-40 bg-blue-500 hover:bg-blue-600 rounded-lg text-5xl font-bold text-white"
-          style={{
-            backgroundImage: `url(${scooty})`,
-          }}
-        >
-          <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-          <p>Scooty</p>
-        </button>
+        <Link to={`/category/${"Sports"}`}>
+          <button
+            className="hero hover:shadow-2xl w-full bg-cover h-40 bg-blue-500 hover:bg-blue-600 rounded-lg text-5xl font-bold text-white"
+            style={{
+              backgroundImage: `url(${sports})`,
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
+            <p>Sports</p>
+          </button>
+        </Link>
+        <Link to={`/category/${"Electric"}`}>
+          <button
+            className="hero hover:shadow-2xl w-full bg-cover h-40 bg-blue-500 hover:bg-blue-600 rounded-lg text-5xl font-bold text-white"
+            style={{
+              backgroundImage: `url(${electric})`,
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
+            <p>Electric</p>
+          </button>
+        </Link>
+        <Link to={`/category/${"Scooty"}`}>
+          <button
+            className="hero hover:shadow-2xl w-full bg-cover h-40 bg-blue-500 hover:bg-blue-600 rounded-lg text-5xl font-bold text-white"
+            style={{
+              backgroundImage: `url(${scooty})`,
+            }}
+          >
+            <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
+            <p>Scooty</p>
+          </button>
+        </Link>
       </div>
     </div>
   );

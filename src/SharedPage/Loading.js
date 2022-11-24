@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="flex items-center justify-center h-full my-40">
+    <div className="flex text-blue-400 items-center justify-center h-full my-40">
       <p className="text-7xl font-bold">L</p>
       <div className="w-12 h-12 border-8 border-dashed rounded-full animate-spin border-secondary mt-5"></div>
       <p className="text-7xl font-bold">ading</p>

@@ -59,6 +59,7 @@ const AddProductModal = ({ setModal }) => {
             method: "POST",
             headers: {
               "content-type": "application/json",
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
             },
             body: JSON.stringify(productData),
           })
@@ -261,19 +262,13 @@ const AddProductModal = ({ setModal }) => {
               SellerName
             </label>
             <input
-              {...register("sellerName", {
-                required: "sellerName Address is required",
-              })}
+              {...register("sellerName")}
               type="sellerName"
               id="sellerName"
-              placeholder="sellerName"
+              readOnly
+              value={user?.displayName}
               className="input input-bordered w-full"
             />
-            {errors.sellerName && (
-              <p className="text-sm text-red-500">
-                {errors.sellerName?.message}
-              </p>
-            )}
           </div>
 
           <div className="space-y-1 text-sm">

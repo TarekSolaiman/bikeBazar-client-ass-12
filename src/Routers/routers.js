@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MyProducts from "../DashbordPages/MyProductsPages/MyProducts";
 import Dashbord from "../Layout/Dashbord";
 import Main from "../Layout/Main";
+import CategoryProduct from "../Pages/CategoryPage/CategoryProduct";
 import Home from "../Pages/HomePages/Home";
 import Login from "../Pages/LoginPage/Login";
 import SignUp from "../Pages/SignupPage/Signup";
@@ -26,8 +27,8 @@ export const routers = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/",
-        element: <Home />,
+        path: "/category/:cat",
+        element: <CategoryProduct />,
       },
     ],
   },
