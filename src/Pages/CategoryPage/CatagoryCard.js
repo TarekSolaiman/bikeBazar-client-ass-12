@@ -29,8 +29,9 @@ const CatagoryCard = ({ product }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success("Report Success full", { autoClose: 500 });
-        console.log(data);
+        if (data.acknowledged) {
+          toast.success("Report Success full", { autoClose: 500 });
+        }
       })
       .catch((e) => console.log(e.message));
   };
