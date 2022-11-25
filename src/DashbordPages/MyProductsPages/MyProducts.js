@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import Loading from "../../SharedPage/Loading";
 import AddProductModal from "./AddProductModal";
 import ProductTable from "./ProductTable";
 
@@ -24,7 +25,9 @@ const MyProducts = () => {
       return data;
     },
   });
-  console.log(myProducts);
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div>
@@ -58,7 +61,11 @@ const MyProducts = () => {
           </thead>
           <tbody>
             {myProducts?.map((product) => (
-              <ProductTable key={product._id} product={product}></ProductTable>
+              <ProductTable
+                key={product._id}
+                product={product}
+                refetch={refetch}
+              ></ProductTable>
             ))}
           </tbody>
         </table>

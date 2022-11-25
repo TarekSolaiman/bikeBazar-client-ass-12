@@ -1,11 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllBuyer from "../DashbordPages/AllUsersPages/AllBuyer/AllBuyer";
+import AllSeller from "../DashbordPages/AllUsersPages/AllSeller/AllSeller";
+import ReporedItem from "../DashbordPages/AllUsersPages/Reporteditem/ReporedItem";
 import MyProducts from "../DashbordPages/MyProductsPages/MyProducts";
+import Profile from "../DashbordPages/ProfilePage/Profile";
 import Dashbord from "../Layout/Dashbord";
 import Main from "../Layout/Main";
 import CategoryProduct from "../Pages/CategoryPage/CategoryProduct";
 import Home from "../Pages/HomePages/Home";
 import Login from "../Pages/LoginPage/Login";
 import SignUp from "../Pages/SignupPage/Signup";
+import AdminRoute from "../PrivateRoute/AdminRoute";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ErrorPage from "../SharedPage/ErrorPage";
 
 export const routers = createBrowserRouter([
@@ -39,7 +45,39 @@ export const routers = createBrowserRouter([
     children: [
       {
         path: "/dashbord",
-        element: <MyProducts></MyProducts>,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashbord/buyers",
+        element: (
+          <AdminRoute>
+            <AllBuyer />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashbord/sellers",
+        element: (
+          <AdminRoute>
+            <AllSeller />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashbord/report",
+        element: (
+          <AdminRoute>
+            <ReporedItem />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashbord/myProduct",
+        element: <MyProducts />,
       },
     ],
   },

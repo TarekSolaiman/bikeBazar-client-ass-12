@@ -16,10 +16,19 @@ const Dashbord = () => {
           <label htmlFor="sitebar" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 text-base-content">
             <li>
-              <Link to="/dashbord">My Product</Link>
+              <Link to="/dashbord">Profile</Link>
             </li>
             <li>
-              <Link to="/dashbord">My Orders</Link>
+              <Link to="/dashbord/myProduct">My Product</Link>
+            </li>
+            <li>
+              <Link to="/dashbord/buyers">All Buyers</Link>
+            </li>
+            <li>
+              <Link to="/dashbord/sellers">All Sellers</Link>
+            </li>
+            <li>
+              <Link to="/dashbord/report">Reported Item</Link>
             </li>
           </ul>
         </div>

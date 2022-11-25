@@ -1,6 +1,7 @@
 import React from "react";
+import { toast } from "react-toastify";
 
-const ProductTable = ({ product }) => {
+const ProductTable = ({ product, refetch }) => {
   const {
     location,
     originalPrice,
@@ -8,7 +9,50 @@ const ProductTable = ({ product }) => {
     resalePrice,
     productPhoto,
     available,
+    advirtict,
+    _id,
   } = product;
+
+  const deleteProduct = (id) => {
+    fetch(`http://localhost:5000/myProducts/${id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          refetch(true);
+          toast.success("success fully delete", {
+            autoClose: 500,
+          });
+        }
+      })
+      .catch((e) => console.log(e.message));
+  };
+
+  // advirtict section true
+  const advirtictBtn = (id) => {
+    fetch(`http://localhost:5000/advirtict/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          refetch(true);
+          toast.success("success fully delete", {
+            autoClose: 500,
+          });
+        }
+      })
+      .catch((e) => console.log(e.message));
+  };
   return (
     <tr>
       <td>
@@ -33,8 +77,20 @@ const ProductTable = ({ product }) => {
       </td>
       <td>{available}</td>
       <th>
-        <button className="btn btn-success btn-xs mr-3">advirtict</button>
-        <button className="btn btn-error btn-xs">delete</button>
+        {advirtict || (
+          <button
+            onClick={() => advirtictBtn(_id)}
+            className="btn btn-success btn-xs mr-3"
+          >
+            advirtict
+          </button>
+        )}
+        <button
+          onClick={() => deleteProduct(_id)}
+          className="btn btn-error btn-xs"
+        >
+          delete
+        </button>
       </th>
     </tr>
   );
