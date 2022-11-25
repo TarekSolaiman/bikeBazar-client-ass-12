@@ -38,11 +38,7 @@ const Navbar = () => {
           Users
         </Link>
       </li>
-      <li>
-        <Link className="font-semibold text-gray-500" to="/dashbord">
-          Dashbord
-        </Link>
-      </li>
+
       <li>
         <label
           htmlFor="sitebar"
@@ -53,6 +49,11 @@ const Navbar = () => {
       </li>
       {user?.email ? (
         <>
+          <li>
+            <Link className="font-semibold text-gray-500" to="/dashbord">
+              Dashbord
+            </Link>
+          </li>
           <li>
             <button
               className="font-semibold text-gray-500"
