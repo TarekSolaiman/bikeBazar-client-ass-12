@@ -12,6 +12,7 @@ import Login from "../Pages/LoginPage/Login";
 import SignUp from "../Pages/SignupPage/Signup";
 import AdminRoute from "../PrivateRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRout from "../PrivateRoute/SellerRout";
 import ErrorPage from "../SharedPage/ErrorPage";
 
 export const routers = createBrowserRouter([
@@ -77,7 +78,11 @@ export const routers = createBrowserRouter([
       },
       {
         path: "/dashbord/myProduct",
-        element: <MyProducts />,
+        element: (
+          <SellerRout>
+            <MyProducts />
+          </SellerRout>
+        ),
       },
     ],
   },

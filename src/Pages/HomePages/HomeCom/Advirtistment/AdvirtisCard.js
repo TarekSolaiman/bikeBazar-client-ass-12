@@ -41,8 +41,10 @@ const AdvirtisCard = ({ advirtict }) => {
       <div className="p-3">
         <div className="flex flex-wrap items-center pb-3">
           <div className="">
-            <p className="text-base font-semibold">Post Time : {postDate}</p>
+            <p className="text-base font-semibold">Model : {productName}</p>
             <p className="text-base font-semibold">Condition : {condition}</p>
+            <p className="text-base font-semibold">Post Time : {postDate}</p>
+            <p className="text-base font-semibold">UseTime : {useTime}</p>
             <p className="text-base font-semibold text-red-600">
               Original Price : {originalPrice} tk
             </p>
