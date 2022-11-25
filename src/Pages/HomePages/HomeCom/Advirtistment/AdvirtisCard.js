@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import avatar from "../../../../assets/avatarImg.png";
+import BookedModal from "../../../CategoryPage/BookedModal";
 
-const AdvirtisCard = ({ advirtict }) => {
+const AdvirtisCard = ({ advirtict: product }) => {
+  const [bookedMod, setBookedMod] = useState(true);
   const {
     email,
     location,
@@ -13,9 +15,8 @@ const AdvirtisCard = ({ advirtict }) => {
     productPhoto,
     postDate,
     condition,
-    category,
     useTime,
-  } = advirtict;
+  } = product;
   return (
     <div className="rounded-md shadow-md hover:shadow-xl w-full text-gray-500">
       <div className="flex items-center justify-between p-3">
@@ -57,9 +58,22 @@ const AdvirtisCard = ({ advirtict }) => {
             </p>
           </div>
         </div>
-        <div className="space-y-3">
-          <button className="btn btn-primary w-full">Book Now</button>
+        <div className="space-y-3 text-center">
+          <label
+            htmlFor="bookedModal"
+            onClick={() => setBookedMod(true)}
+            className="btn btn-success w-24 mr-3"
+          >
+            Booked
+          </label>
+          <button className="btn btn-error w-24">Report</button>
         </div>
+        {bookedMod && (
+          <BookedModal
+            setBookedMod={setBookedMod}
+            product={product}
+          ></BookedModal>
+        )}
       </div>
     </div>
   );

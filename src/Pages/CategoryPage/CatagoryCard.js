@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 import avatar from "../../assets/avatarImg.png";
+import BookedModal from "./BookedModal";
 
 const CatagoryCard = ({ product }) => {
+  const [bookedMod, setBookedMod] = useState(true);
   const {
     email,
     location,
@@ -13,9 +16,24 @@ const CatagoryCard = ({ product }) => {
     productPhoto,
     postDate,
     condition,
-    category,
     useTime,
+    _id,
   } = product;
+
+  const handleReport = (id) => {
+    fetch(`http://localhost:5000/report/${id}`, {
+      method: "PATCH",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Report Success full", { autoClose: 500 });
+        console.log(data);
+      })
+      .catch((e) => console.log(e.message));
+  };
   return (
     <div>
       <div className="rounded-md shadow-md hover:shadow-xl w-full text-gray-500">
@@ -39,13 +57,15 @@ const CatagoryCard = ({ product }) => {
         <img
           src={productPhoto}
           alt=""
-          className="object-cover object-center w-full dark:bg-gray-500"
+          className="object-cover object-center w-full h-52 dark:bg-gray-500"
         />
         <div className="p-3">
           <div className="flex flex-wrap items-center pb-3">
             <div className="">
+              <p className="text-base font-semibold">Model : {productName}</p>
               <p className="text-base font-semibold">Post Time : {postDate}</p>
               <p className="text-base font-semibold">Condition : {condition}</p>
+              <p className="text-base font-semibold">UseTime : {useTime}</p>
               <p className="text-base font-semibold text-red-600">
                 Original Price : {originalPrice} tk
               </p>
@@ -58,9 +78,27 @@ const CatagoryCard = ({ product }) => {
               </p>
             </div>
           </div>
-          <div className="space-y-3">
-            <button className="btn btn-primary w-full">Book Now</button>
+          <div className="space-y-3 text-center">
+            <label
+              htmlFor="bookedModal"
+              onClick={() => setBookedMod(true)}
+              className="btn btn-success w-24 mr-3"
+            >
+              Booked
+            </label>
+            <button
+              onClick={() => handleReport(_id)}
+              className="btn btn-error w-24"
+            >
+              Report
+            </button>
           </div>
+          {bookedMod && (
+            <BookedModal
+              setBookedMod={setBookedMod}
+              product={product}
+            ></BookedModal>
+          )}
         </div>
       </div>
     </div>
