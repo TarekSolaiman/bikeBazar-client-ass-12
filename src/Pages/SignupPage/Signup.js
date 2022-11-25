@@ -41,7 +41,7 @@ const SignUp = () => {
   };
 
   const saveUser = (email, name, role) => {
-    const user = { email, name, role };
+    const user = { email, name, role, sellerVerify: false };
     fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {

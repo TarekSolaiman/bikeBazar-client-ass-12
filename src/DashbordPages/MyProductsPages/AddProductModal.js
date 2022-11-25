@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider";
 
-const AddProductModal = ({ setModal }) => {
+const AddProductModal = ({ setModal, refetch }) => {
   const { user } = useContext(AuthContext);
   const {
     register,
@@ -53,6 +53,9 @@ const AddProductModal = ({ setModal }) => {
             condition,
             category,
             useTime,
+            available: "available",
+            advirtict: false,
+            sellerVerify: false,
           };
           console.log(productData);
           fetch("http://localhost:5000/products", {
@@ -67,6 +70,7 @@ const AddProductModal = ({ setModal }) => {
             .then((data) => {
               toast.success("success fully post", { autoClose: 500 });
               console.log(data);
+              refetch(true);
             });
           reset();
           setModal(false);
