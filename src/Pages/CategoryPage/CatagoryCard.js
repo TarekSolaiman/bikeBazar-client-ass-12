@@ -5,6 +5,7 @@ import BookedModal from "../../SharedPage/BookedModal";
 
 const CatagoryCard = ({ product }) => {
   const [bookedMod, setBookedMod] = useState(true);
+  const [produtcData, setProdutcData] = useState({});
   const {
     email,
     location,
@@ -20,6 +21,7 @@ const CatagoryCard = ({ product }) => {
     _id,
   } = product;
 
+  // repor button function
   const handleReport = (id) => {
     fetch(`http://localhost:5000/report/${id}`, {
       method: "PATCH",
@@ -34,6 +36,12 @@ const CatagoryCard = ({ product }) => {
         }
       })
       .catch((e) => console.log(e.message));
+  };
+
+  // Booked send in the booked modal
+  const handleBookedBtn = (prod) => {
+    setProdutcData(prod);
+    setBookedMod(true);
   };
   return (
     <div>
@@ -82,7 +90,7 @@ const CatagoryCard = ({ product }) => {
           <div className="space-y-3 text-center">
             <label
               htmlFor="bookedModal"
-              onClick={() => setBookedMod(true)}
+              onClick={() => handleBookedBtn(product)}
               className="btn btn-success w-24 mr-3"
             >
               Booked
@@ -94,10 +102,11 @@ const CatagoryCard = ({ product }) => {
               Report
             </button>
           </div>
-          {bookedMod && (
+          {bookedMod && produtcData && (
             <BookedModal
               setBookedMod={setBookedMod}
               product={product}
+              setProdutcData={setProdutcData}
             ></BookedModal>
           )}
         </div>

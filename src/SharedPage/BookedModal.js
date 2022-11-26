@@ -5,8 +5,6 @@ import { AuthContext } from "../context/AuthProvider";
 
 const BookedModal = ({ setBookedMod, product }) => {
   const { user } = useContext(AuthContext);
-  const userName = user?.displayName;
-  const userEmail = user?.email;
   const { email, productName, resalePrice, _id } = product;
   const {
     register,
@@ -16,8 +14,6 @@ const BookedModal = ({ setBookedMod, product }) => {
     defaultValues: {
       productName: productName,
       price: resalePrice,
-      buyerName: userName,
-      buyerEmail: userEmail,
     },
   });
   const handleBooked = (data) => {
@@ -45,6 +41,11 @@ const BookedModal = ({ setBookedMod, product }) => {
         console.log(data);
       })
       .catch((e) => console.log(e.message));
+  };
+
+  const canselBtn = () => {
+    setBookedMod(false);
+    // setProdutcData({});
   };
   return (
     <>
@@ -93,6 +94,7 @@ const BookedModal = ({ setBookedMod, product }) => {
                 type="text"
                 id="buyerName"
                 readOnly
+                value={user?.displayName}
                 className="input input-bordered w-full"
               />
             </div>
@@ -105,6 +107,8 @@ const BookedModal = ({ setBookedMod, product }) => {
                 {...register("buyerEmail")}
                 type="text"
                 id="buyerEmail"
+                readOnly
+                value={user?.email}
                 className="input input-bordered w-full"
               />
             </div>
@@ -153,7 +157,7 @@ const BookedModal = ({ setBookedMod, product }) => {
               <button className="btn btn-success w-24 mr-3">Booked</button>
               <label
                 htmlFor="bookedModal"
-                onClick={() => setBookedMod(false)}
+                onClick={canselBtn}
                 className="btn btn-error w-24"
               >
                 cansel
