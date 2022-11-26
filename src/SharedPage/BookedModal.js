@@ -1,16 +1,25 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { AuthContext } from "../../context/AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
 
 const BookedModal = ({ setBookedMod, product }) => {
   const { user } = useContext(AuthContext);
+  const userName = user?.displayName;
+  const userEmail = user?.email;
   const { email, productName, resalePrice, _id } = product;
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      productName: productName,
+      price: resalePrice,
+      buyerName: userName,
+      buyerEmail: userEmail,
+    },
+  });
   const handleBooked = (data) => {
     const bookingData = { ...data, productId: _id, sellerEmail: email };
     fetch("http://localhost:5000/booked", {
@@ -52,7 +61,7 @@ const BookedModal = ({ setBookedMod, product }) => {
                 {...register("productName")}
                 type="text"
                 id="productName"
-                value={productName}
+                readOnly
                 className="input input-bordered w-full"
               />
             </div>
@@ -65,7 +74,7 @@ const BookedModal = ({ setBookedMod, product }) => {
                 {...register("price")}
                 type="text"
                 id="price"
-                value={resalePrice}
+                readOnly
                 className="input input-bordered w-full"
               />
             </div>
@@ -78,7 +87,7 @@ const BookedModal = ({ setBookedMod, product }) => {
                 {...register("buyerName")}
                 type="text"
                 id="buyerName"
-                value={user?.displayName}
+                readOnly
                 className="input input-bordered w-full"
               />
             </div>
@@ -91,7 +100,6 @@ const BookedModal = ({ setBookedMod, product }) => {
                 {...register("buyerEmail")}
                 type="text"
                 id="buyerEmail"
-                value={user?.email}
                 className="input input-bordered w-full"
               />
             </div>

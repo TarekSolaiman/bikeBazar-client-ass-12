@@ -25,7 +25,7 @@ const Dashbord = () => {
               <Link to="/dashbord">Profile</Link>
             </li>
             <li>
-              <Link to="/dashbord">Booking List</Link>
+              <Link to="/dashbord/booked">Booking List</Link>
             </li>
             <li>
               <Link to="/dashbord">Wish List</Link>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import avatar from "../../../../assets/avatarImg.png";
-import BookedModal from "../../../CategoryPage/BookedModal";
+import BookedModal from "../../../../SharedPage/BookedModal";
 
 const AdvirtisCard = ({ advirtict: product }) => {
   const [bookedMod, setBookedMod] = useState(true);

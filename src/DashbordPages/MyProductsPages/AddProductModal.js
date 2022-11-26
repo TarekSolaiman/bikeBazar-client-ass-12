@@ -56,6 +56,7 @@ const AddProductModal = ({ setModal, refetch }) => {
             available: "available",
             advirtict: false,
             sellerVerify: false,
+            report: false,
           };
           console.log(productData);
           fetch("http://localhost:5000/products", {

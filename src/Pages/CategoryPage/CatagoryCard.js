@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import avatar from "../../assets/avatarImg.png";
-import BookedModal from "./BookedModal";
+import BookedModal from "../../SharedPage/BookedModal";
 
 const CatagoryCard = ({ product }) => {
   const [bookedMod, setBookedMod] = useState(true);
