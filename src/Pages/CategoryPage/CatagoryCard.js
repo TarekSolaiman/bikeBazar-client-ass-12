@@ -18,6 +18,7 @@ const CatagoryCard = ({ product }) => {
     postDate,
     condition,
     useTime,
+    sellerVerify,
     _id,
   } = product;
 
@@ -39,8 +40,8 @@ const CatagoryCard = ({ product }) => {
   };
 
   // Booked send in the booked modal
-  const handleBookedBtn = (prod) => {
-    setProdutcData(prod);
+  const handleBookedBtn = (data) => {
+    setProdutcData(data);
     setBookedMod(true);
   };
   return (
@@ -62,6 +63,22 @@ const CatagoryCard = ({ product }) => {
               </span>
             </div>
           </div>
+          {sellerVerify && (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="2"
+              stroke="currentColor"
+              className="w-6 h-6 text-success"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          )}
         </div>
         <img
           src={productPhoto}
@@ -106,6 +123,7 @@ const CatagoryCard = ({ product }) => {
             <BookedModal
               setBookedMod={setBookedMod}
               product={product}
+              produtcData={produtcData}
               setProdutcData={setProdutcData}
             ></BookedModal>
           )}

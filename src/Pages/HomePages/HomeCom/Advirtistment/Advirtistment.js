@@ -3,11 +3,7 @@ import React from "react";
 import AdvirtisCard from "./AdvirtisCard";
 
 const Advirtistment = () => {
-  const {
-    data: advirticts = [],
-    isLoading,
-    refetch,
-  } = useQuery({
+  const { data: advirticts = [], isLoading } = useQuery({
     queryKey: "advirtict",
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/advirtict`, {

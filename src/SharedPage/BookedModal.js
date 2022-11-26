@@ -3,8 +3,14 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
 
-const BookedModal = ({ setBookedMod, product }) => {
+const BookedModal = ({
+  setBookedMod,
+  produtcData,
+  setProdutcData,
+  product,
+}) => {
   const { user } = useContext(AuthContext);
+  console.log(produtcData);
   const { email, productName, resalePrice, _id } = product;
   const {
     register,
@@ -45,7 +51,7 @@ const BookedModal = ({ setBookedMod, product }) => {
 
   const canselBtn = () => {
     setBookedMod(false);
-    // setProdutcData({});
+    setProdutcData({});
   };
   return (
     <>

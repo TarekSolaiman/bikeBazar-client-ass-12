@@ -4,7 +4,11 @@ import Loading from "../../../SharedPage/Loading";
 import SellerCard from "./SellerCard";
 
 const AllSeller = () => {
-  const { data: sellers = [], isLoading } = useQuery({
+  const {
+    data: sellers = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: "sellers",
     queryFn: async () => {
       const res = await fetch("http://localhost:5000/admin/sellers", {
@@ -34,7 +38,11 @@ const AllSeller = () => {
           </thead>
           <tbody>
             {sellers?.map((seller) => (
-              <SellerCard key={seller._id} seller={seller}></SellerCard>
+              <SellerCard
+                key={seller._id}
+                seller={seller}
+                refetch={refetch}
+              ></SellerCard>
             ))}
           </tbody>
         </table>
