@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { format } from "date-fns";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const AddProductModal = ({ setModal, refetch }) => {
   const { user } = useContext(AuthContext);
+  const [btnDisaible, setBtnDisaible] = useState(false);
   const {
     register,
     handleSubmit,
@@ -14,6 +15,7 @@ const AddProductModal = ({ setModal, refetch }) => {
   } = useForm();
   const imghostKey = process.env.REACT_APP_imgbb_key;
   const handleAddProduct = (data) => {
+    setBtnDisaible(true);
     const {
       email,
       location,
@@ -69,12 +71,16 @@ const AddProductModal = ({ setModal, refetch }) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              toast.success("success fully post", { autoClose: 500 });
-              console.log(data);
-              refetch(true);
+              if (data.acknowledged) {
+                toast.success("success fully post", { autoClose: 500 });
+                refetch(true);
+                setBtnDisaible(false);
+                reset();
+                setModal(false);
+              } else {
+                toast.success(data.message, { autoClose: 500 });
+              }
             });
-          reset();
-          setModal(false);
         }
       })
       .catch((e) => console.log(e.message));
@@ -297,9 +303,16 @@ const AddProductModal = ({ setModal, refetch }) => {
           </div>
 
           <div className="modal-action justify-center">
-            <button type="submit" className="btn btn-success">
-              Submit
-            </button>
+            {btnDisaible ? (
+              <button type="submit" disabled className="btn btn-success">
+                Submit
+              </button>
+            ) : (
+              <button type="submit" className="btn btn-success">
+                Submit
+              </button>
+            )}
+
             <button
               onClick={() => {
                 setModal(false);

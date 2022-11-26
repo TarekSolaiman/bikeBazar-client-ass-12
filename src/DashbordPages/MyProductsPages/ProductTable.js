@@ -77,7 +77,15 @@ const ProductTable = ({ product, refetch }) => {
       </td>
       <td>{available}</td>
       <th>
-        {advirtict || (
+        {advirtict ? (
+          <button
+            onClick={() => advirtictBtn(_id)}
+            className="btn btn-success btn-xs mr-3"
+            disabled
+          >
+            advirtict
+          </button>
+        ) : (
           <button
             onClick={() => advirtictBtn(_id)}
             className="btn btn-success btn-xs mr-3"
