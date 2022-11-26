@@ -32,12 +32,17 @@ const BookedModal = ({ setBookedMod, product }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        if (data.acknowledged) {
+          setBookedMod(false);
+          toast.success("Success full Booked", {
+            autoClose: 500,
+          });
+        } else {
+          toast.error(data.message, {
+            autoClose: 500,
+          });
+        }
         console.log(data);
-        console.log(bookingData);
-        setBookedMod(false);
-        toast.success("Success full Booked", {
-          autoClose: 500,
-        });
       })
       .catch((e) => console.log(e.message));
   };

@@ -6,7 +6,11 @@ import BookedTable from "./BookedTable";
 
 const BookingList = () => {
   const { user } = useContext(AuthContext);
-  const { data: bookings = [], isLoading } = useQuery({
+  const {
+    data: bookings = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: "booked",
     queryFn: async () => {
       const res = await fetch(`http://localhost:5000/booked/${user?.email}`, {
@@ -38,7 +42,12 @@ const BookingList = () => {
           </thead>
           <tbody>
             {bookings?.map((booked, i) => (
-              <BookedTable key={booked._id} booked={booked} i={i}></BookedTable>
+              <BookedTable
+                key={booked._id}
+                booked={booked}
+                i={i}
+                refetch={refetch}
+              ></BookedTable>
             ))}
           </tbody>
         </table>
