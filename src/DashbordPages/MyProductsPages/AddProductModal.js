@@ -3,9 +3,11 @@ import { format } from "date-fns";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider";
+import useIsverify from "../../hooks/useIsverify";
 
 const AddProductModal = ({ setModal, refetch }) => {
   const { user } = useContext(AuthContext);
+  const [isVerify] = useIsverify(user?.email);
   const [btnDisaible, setBtnDisaible] = useState(false);
   const {
     register,
@@ -57,7 +59,7 @@ const AddProductModal = ({ setModal, refetch }) => {
             useTime,
             available: "available",
             advirtict: false,
-            sellerVerify: false,
+            sellerVerify: isVerify,
             report: false,
           };
           console.log(productData);

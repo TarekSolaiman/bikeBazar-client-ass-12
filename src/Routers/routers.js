@@ -3,6 +3,7 @@ import AllBuyer from "../DashbordPages/AllUsersPages/AllBuyer/AllBuyer";
 import AllSeller from "../DashbordPages/AllUsersPages/AllSeller/AllSeller";
 import ReporedItem from "../DashbordPages/AllUsersPages/Reporteditem/ReporedItem";
 import BookingList from "../DashbordPages/BuyerPages/BookingList";
+import MyOrders from "../DashbordPages/MyOrdersPages/MyOrders";
 import MyProducts from "../DashbordPages/MyProductsPages/MyProducts";
 import Profile from "../DashbordPages/ProfilePage/Profile";
 import Dashbord from "../Layout/Dashbord";
@@ -94,6 +95,14 @@ export const routers = createBrowserRouter([
         element: (
           <SellerRout>
             <MyProducts />
+          </SellerRout>
+        ),
+      },
+      {
+        path: "/dashbord/myOrders",
+        element: (
+          <SellerRout>
+            <MyOrders />
           </SellerRout>
         ),
       },

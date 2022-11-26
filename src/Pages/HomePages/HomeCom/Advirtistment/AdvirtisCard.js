@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import avatar from "../../../../assets/avatarImg.png";
 import BookedModal from "../../../../SharedPage/BookedModal";
 
 const AdvirtisCard = ({ advirtict: product }) => {
-  const [bookedMod, setBookedMod] = useState(true);
+  const [produtcData, setProdutcData] = useState(null);
   const {
     email,
     location,
@@ -17,8 +18,27 @@ const AdvirtisCard = ({ advirtict: product }) => {
     condition,
     useTime,
     sellerVerify,
+    _id,
   } = product;
-  console.log(sellerVerify);
+  // console.log(sellerVerify);
+
+  // repor button function
+  const handleReport = (id) => {
+    fetch(`http://localhost:5000/report/${id}`, {
+      method: "PATCH",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Report Success full", { autoClose: 500 });
+        }
+      })
+      .catch((e) => console.log(e.message));
+  };
+
   return (
     <div className="rounded-md shadow-md hover:shadow-xl w-full text-gray-500">
       <div className="flex items-center justify-between p-3">
@@ -81,17 +101,22 @@ const AdvirtisCard = ({ advirtict: product }) => {
         <div className="space-y-3 text-center">
           <label
             htmlFor="bookedModal"
-            onClick={() => setBookedMod(true)}
+            onClick={() => setProdutcData(product)}
             className="btn btn-success w-24 mr-3"
           >
             Booked
           </label>
-          <button className="btn btn-error w-24">Report</button>
+          <button
+            onClick={() => handleReport(_id)}
+            className="btn btn-error w-24"
+          >
+            Report
+          </button>
         </div>
-        {bookedMod && (
+        {produtcData && (
           <BookedModal
-            setBookedMod={setBookedMod}
-            product={product}
+            produtcData={produtcData}
+            setProdutcData={setProdutcData}
           ></BookedModal>
         )}
       </div>

@@ -4,8 +4,7 @@ import avatar from "../../assets/avatarImg.png";
 import BookedModal from "../../SharedPage/BookedModal";
 
 const CatagoryCard = ({ product }) => {
-  const [bookedMod, setBookedMod] = useState(true);
-  const [produtcData, setProdutcData] = useState({});
+  const [produtcData, setProdutcData] = useState(null);
   const {
     email,
     location,
@@ -19,7 +18,6 @@ const CatagoryCard = ({ product }) => {
     condition,
     useTime,
     sellerVerify,
-    _id,
   } = product;
 
   // repor button function
@@ -39,11 +37,6 @@ const CatagoryCard = ({ product }) => {
       .catch((e) => console.log(e.message));
   };
 
-  // Booked send in the booked modal
-  const handleBookedBtn = (data) => {
-    setProdutcData(data);
-    setBookedMod(true);
-  };
   return (
     <div>
       <div className="rounded-md shadow-md hover:shadow-xl w-full text-gray-500">
@@ -107,22 +100,20 @@ const CatagoryCard = ({ product }) => {
           <div className="space-y-3 text-center">
             <label
               htmlFor="bookedModal"
-              onClick={() => handleBookedBtn(product)}
+              onClick={() => setProdutcData(product)}
               className="btn btn-success w-24 mr-3"
             >
               Booked
             </label>
             <button
-              onClick={() => handleReport(_id)}
+              onClick={() => handleReport(product)}
               className="btn btn-error w-24"
             >
               Report
             </button>
           </div>
-          {bookedMod && produtcData && (
+          {produtcData && (
             <BookedModal
-              setBookedMod={setBookedMod}
-              product={product}
               produtcData={produtcData}
               setProdutcData={setProdutcData}
             ></BookedModal>

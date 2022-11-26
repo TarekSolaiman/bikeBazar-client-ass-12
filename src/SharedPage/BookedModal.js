@@ -1,29 +1,39 @@
 import React, { useContext } from "react";
-import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { AuthContext } from "../context/AuthProvider";
 
-const BookedModal = ({
-  setBookedMod,
-  produtcData,
-  setProdutcData,
-  product,
-}) => {
+const BookedModal = ({ produtcData, setProdutcData }) => {
   const { user } = useContext(AuthContext);
-  console.log(produtcData);
-  const { email, productName, resalePrice, _id } = product;
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      productName: productName,
+  const { email, productName, resalePrice, _id } = produtcData;
+  // console.log(produtcData);
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({
+  //   defaultValues: {
+  //     productName: productName,
+  //     price: resalePrice,
+  //   },
+  // });
+  const handleBooked = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const buyerName = form.buyerName.value;
+    const buyerEmail = form.buyerEmail.value;
+    const buyerMobile = form.buyerMobile.value;
+    const meeting = form.meeting.value;
+    const bookingData = {
+      productName,
       price: resalePrice,
-    },
-  });
-  const handleBooked = (data) => {
-    const bookingData = { ...data, productId: _id, sellerEmail: email };
+      buyerName,
+      buyerEmail,
+      buyerMobile,
+      meeting,
+      productId: _id,
+      sellerEmail: email,
+    };
+    console.log(bookingData);
     fetch("http://localhost:5000/booked", {
       method: "POST",
       headers: {
@@ -35,7 +45,7 @@ const BookedModal = ({
       .then((res) => res.json())
       .then((data) => {
         if (data.acknowledged) {
-          setBookedMod(false);
+          setProdutcData(null);
           toast.success("Success full Booked", {
             autoClose: 500,
           });
@@ -50,8 +60,7 @@ const BookedModal = ({
   };
 
   const canselBtn = () => {
-    setBookedMod(false);
-    setProdutcData({});
+    setProdutcData(null);
   };
   return (
     <>
@@ -62,7 +71,7 @@ const BookedModal = ({
             Congratulations random Internet user!
           </h3>
           <form
-            onSubmit={handleSubmit(handleBooked)}
+            onSubmit={handleBooked}
             className="space-y-6 ng-untouched ng-pristine ng-valid"
           >
             <div className="space-y-1 text-sm">
@@ -70,10 +79,11 @@ const BookedModal = ({
                 product name
               </label>
               <input
-                {...register("productName")}
                 type="text"
                 id="productName"
+                name="productName"
                 readOnly
+                value={productName}
                 className="input input-bordered w-full"
               />
             </div>
@@ -83,22 +93,23 @@ const BookedModal = ({
                 price
               </label>
               <input
-                {...register("price")}
                 type="text"
                 id="price"
+                name="price"
                 readOnly
+                value={resalePrice}
                 className="input input-bordered w-full"
               />
             </div>
 
             <div className="space-y-1 text-sm">
               <label htmlFor="buyerName" className="block text-gray-400">
-                your name
+                Your name
               </label>
               <input
-                {...register("buyerName")}
                 type="text"
                 id="buyerName"
+                name="buyerName"
                 readOnly
                 value={user?.displayName}
                 className="input input-bordered w-full"
@@ -107,12 +118,12 @@ const BookedModal = ({
 
             <div className="space-y-1 text-sm">
               <label htmlFor="buyerEmail" className="block text-gray-400">
-                your email
+                product name
               </label>
               <input
-                {...register("buyerEmail")}
                 type="text"
                 id="buyerEmail"
+                name="buyerEmail"
                 readOnly
                 value={user?.email}
                 className="input input-bordered w-full"
@@ -121,42 +132,30 @@ const BookedModal = ({
 
             <div className="space-y-1 text-sm">
               <label htmlFor="buyerMobile" className="block text-gray-400">
-                your mobile number
+                Mobile Number
               </label>
               <input
-                {...register("buyerMobile", {
-                  required: "Mobile Number is required",
-                })}
-                type="phone"
+                type="text"
                 id="buyerMobile"
-                placeholder="your mobile number"
+                name="buyerMobile"
+                required
+                placeholder="Your Number"
                 className="input input-bordered w-full"
               />
-              {errors.buyerMobile && (
-                <p className="text-sm text-red-500">
-                  {errors.buyerMobile?.message}
-                </p>
-              )}
             </div>
 
             <div className="space-y-1 text-sm">
               <label htmlFor="meeting" className="block text-gray-400">
-                meeting location
+                Meeting Location
               </label>
               <input
-                {...register("meeting", {
-                  required: "Meeting location is required",
-                })}
-                type="location"
+                type="text"
                 id="meeting"
-                placeholder="meeting location"
+                name="meeting"
+                required
+                placeholder="Meeting Location"
                 className="input input-bordered w-full"
               />
-              {errors.meeting && (
-                <p className="text-sm text-red-500">
-                  {errors.meeting?.message}
-                </p>
-              )}
             </div>
 
             <div className="modal-action flex justify-center">
