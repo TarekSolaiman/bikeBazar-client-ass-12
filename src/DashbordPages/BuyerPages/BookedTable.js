@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const BookedTable = ({ booked, i, refetch }) => {
@@ -34,7 +35,12 @@ const BookedTable = ({ booked, i, refetch }) => {
         <td>{productName}</td>
         <td>{price}</td>
         <td>
-          <button className="btn btn-sm btn-success w-24">pay</button>
+          <Link
+            to={`/dashbord/payment/${_id}`}
+            className="btn btn-sm btn-success w-24"
+          >
+            pay
+          </Link>
         </td>
         <td>
           <button

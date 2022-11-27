@@ -3,6 +3,7 @@ import AllBuyer from "../DashbordPages/AllUsersPages/AllBuyer/AllBuyer";
 import AllSeller from "../DashbordPages/AllUsersPages/AllSeller/AllSeller";
 import ReporedItem from "../DashbordPages/AllUsersPages/Reporteditem/ReporedItem";
 import BookingList from "../DashbordPages/BuyerPages/BookingList";
+import PaymentPage from "../DashbordPages/BuyerPages/PaymentPage";
 import MyOrders from "../DashbordPages/MyOrdersPages/MyOrders";
 import MyProducts from "../DashbordPages/MyProductsPages/MyProducts";
 import Profile from "../DashbordPages/ProfilePage/Profile";
@@ -63,6 +64,16 @@ export const routers = createBrowserRouter([
         element: (
           <PrivateRoute>
             <BookingList />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashbord/payment/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/booked/payment/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <PaymentPage />
           </PrivateRoute>
         ),
       },

@@ -5,17 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 const BookedModal = ({ produtcData, setProdutcData }) => {
   const { user } = useContext(AuthContext);
   const { email, productName, resalePrice, _id } = produtcData;
-  // console.log(produtcData);
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({
-  //   defaultValues: {
-  //     productName: productName,
-  //     price: resalePrice,
-  //   },
-  // });
+
   const handleBooked = (e) => {
     e.preventDefault();
     const form = e.target;
