@@ -66,7 +66,7 @@ const Navbar = () => {
         <div className="items-center justify-end hidden w-full lg:flex md:w-auto md:order-1">
           <ul className="menu menu-horizontal p-0">{linkList}</ul>
         </div>
-        <div className="flex md:order-2 lg:hidden dropdown dropdown-end flex items-center">
+        <div className="flex md:order-2 lg:hidden dropdown dropdown-end items-center">
           {user?.email && (
             <label
               htmlFor="sitebar"
