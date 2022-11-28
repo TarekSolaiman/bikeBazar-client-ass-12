@@ -26,7 +26,7 @@ const BookedModal = ({ produtcData, setProdutcData }) => {
       productPhoto,
     };
     console.log(bookingData);
-    fetch("http://localhost:5000/booked", {
+    fetch("https://bike-bazar-server.vercel.app/booked", {
       method: "POST",
       headers: {
         "content-type": "application/json",

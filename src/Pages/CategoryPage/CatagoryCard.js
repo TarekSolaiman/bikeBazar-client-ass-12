@@ -24,7 +24,7 @@ const CatagoryCard = ({ product }) => {
 
   // repor button function
   const handleReport = (id) => {
-    fetch(`http://localhost:5000/report/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/report/${id}`, {
       method: "PATCH",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

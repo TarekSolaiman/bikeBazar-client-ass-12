@@ -13,11 +13,14 @@ const ReporedItem = () => {
   } = useQuery({
     queryKey: "reportData",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/admin/report", {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        "https://bike-bazar-server.vercel.app/admin/report",
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       return data;
     },

@@ -18,11 +18,14 @@ const MyProducts = () => {
   } = useQuery({
     queryKey: "myProducts",
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/myProducts`, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        `https://bike-bazar-server.vercel.app/myProducts`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       return data;
     },

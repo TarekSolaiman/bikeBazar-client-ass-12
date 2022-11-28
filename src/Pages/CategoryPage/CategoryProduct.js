@@ -11,11 +11,14 @@ const CategoryProduct = () => {
   const { data: category = [], isLoading } = useQuery({
     queryKey: "category",
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/category/${cat}`, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        `https://bike-bazar-server.vercel.app/category/${cat}`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       return data;
     },

@@ -7,7 +7,7 @@ const BookedTable = ({ booked, i, refetch }) => {
 
   // handleDelet for booking delete
   const bookedDelete = (id) => {
-    fetch(`http://localhost:5000/booked/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/booked/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

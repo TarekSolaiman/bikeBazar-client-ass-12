@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const SellerCard = ({ seller, refetch }) => {
   const { name, email, sellerVerify, _id } = seller;
   const sellerDelete = (id) => {
-    fetch(`http://localhost:5000/admin/sellers/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/admin/sellers/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -25,7 +25,7 @@ const SellerCard = ({ seller, refetch }) => {
       });
   };
   const verifyedBtn = (em) => {
-    fetch(`http://localhost:5000/admin/sellers/${em}`, {
+    fetch(`https://bike-bazar-server.vercel.app/admin/sellers/${em}`, {
       method: "PATCH",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

@@ -13,7 +13,7 @@ const SellerPayment = () => {
     queryKey: "myPayments",
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/payment/seller/${user.email}`,
+        `https://bike-bazar-server.vercel.app/payment/seller/${user.email}`,
         {
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,

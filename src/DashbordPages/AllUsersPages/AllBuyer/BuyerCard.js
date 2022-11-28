@@ -5,7 +5,7 @@ const BuyerCard = ({ buyer, refetch }) => {
   const { email, name, _id } = buyer;
   // delet buyer
   const deleteBuyer = (id) => {
-    fetch(`http://localhost:5000/admin/buyers/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/admin/buyers/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

@@ -4,7 +4,7 @@ const useIsverify = (email) => {
   const [isVerify, setIsverify] = useState(false);
   useEffect(() => {
     if (email) {
-      fetch(`http://localhost:5000/users/verify/${email}`)
+      fetch(`https://bike-bazar-server.vercel.app/users/verify/${email}`)
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);

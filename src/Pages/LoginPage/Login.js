@@ -66,7 +66,7 @@ const Login = () => {
   // user save db
   const saveUser = (email, name, role) => {
     const user = { email, name, role, sellerVerify: false };
-    fetch("http://localhost:5000/users", {
+    fetch("https://bike-bazar-server.vercel.app/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",

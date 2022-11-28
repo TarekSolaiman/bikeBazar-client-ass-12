@@ -14,7 +14,7 @@ const ProductTable = ({ product, refetch }) => {
   } = product;
 
   const deleteProduct = (id) => {
-    fetch(`http://localhost:5000/myProducts/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/myProducts/${id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -35,7 +35,7 @@ const ProductTable = ({ product, refetch }) => {
 
   // advirtict section true
   const advirtictBtn = (id) => {
-    fetch(`http://localhost:5000/advirtict/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/advirtict/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

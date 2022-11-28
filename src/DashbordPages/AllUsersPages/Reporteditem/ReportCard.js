@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const ReportCard = ({ report, refetch }) => {
   const { productName, email, resalePrice, _id } = report;
   const deleteItem = (id) => {
-    fetch(`http://localhost:5000/admin/report/${id}`, {
+    fetch(`https://bike-bazar-server.vercel.app/admin/report/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

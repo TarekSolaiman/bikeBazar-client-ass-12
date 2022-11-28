@@ -86,7 +86,9 @@ export const routers = createBrowserRouter([
       {
         path: "/dashbord/payment/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/booked/payment/${params.id}`),
+          fetch(
+            `https://bike-bazar-server.vercel.app/booked/payment/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <PaymentPage />

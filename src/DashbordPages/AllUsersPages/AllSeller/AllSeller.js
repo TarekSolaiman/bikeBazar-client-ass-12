@@ -13,11 +13,14 @@ const AllSeller = () => {
   } = useQuery({
     queryKey: "sellers",
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/admin/sellers", {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        "https://bike-bazar-server.vercel.app/admin/sellers",
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       return data;
     },

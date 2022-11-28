@@ -1,6 +1,6 @@
 //============================Website Deteile =============================//
 
-Live site link :
+Live site link : https://bikebazar-91eaa.web.app/
 Admin id : sobuj@gamil.com
 Admin password : A@123456
 

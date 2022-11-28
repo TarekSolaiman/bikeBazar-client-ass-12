@@ -9,11 +9,14 @@ const AdminPayment = () => {
   const { data: payments = [], isLoading } = useQuery({
     queryKey: "payments",
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/payment/admin`, {
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        },
-      });
+      const res = await fetch(
+        `https://bike-bazar-server.vercel.app/payment/admin`,
+        {
+          headers: {
+            authorization: `bearer ${localStorage.getItem("accessToken")}`,
+          },
+        }
+      );
       const data = await res.json();
       return data;
     },
