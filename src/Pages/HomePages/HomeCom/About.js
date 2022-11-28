@@ -20,9 +20,7 @@ const About = () => {
               ture expreanc morthen bettar and you love with your bike .
             </p>
           </div>
-          <div className="text-gray-100">
-            <p>Insert the actual text content here...</p>
-          </div>
+          <div className="text-gray-100"></div>
         </div>
       </div>
     </div>

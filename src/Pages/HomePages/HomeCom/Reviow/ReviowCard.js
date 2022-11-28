@@ -1,4 +1,5 @@
 import React from "react";
+import avatar from "../../../../assets/avatarImg.png";
 
 const ReviowCard = () => {
   return (
@@ -7,7 +8,7 @@ const ReviowCard = () => {
         <div className="flex space-x-4">
           <div>
             <img
-              src="https://source.unsplash.com/100x100/?portrait"
+              src={avatar}
               alt=""
               className="object-cover w-12 h-12 rounded-full dark:bg-gray-500"
             />
