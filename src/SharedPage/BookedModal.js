@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 const BookedModal = ({ produtcData, setProdutcData }) => {
   const { user } = useContext(AuthContext);
-  const { email, productName, resalePrice, _id } = produtcData;
+  const { email, productName, resalePrice, _id, productPhoto } = produtcData;
 
   const handleBooked = (e) => {
     e.preventDefault();
@@ -22,6 +22,8 @@ const BookedModal = ({ produtcData, setProdutcData }) => {
       meeting,
       productId: _id,
       sellerEmail: email,
+      paid: false,
+      productPhoto,
     };
     console.log(bookingData);
     fetch("http://localhost:5000/booked", {

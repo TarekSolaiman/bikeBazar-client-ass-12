@@ -10,11 +10,13 @@ const CheckoutForm = ({ booked }) => {
   const {
     price,
     buyerName,
-    buyerMobile,
     buyerEmail,
     productName,
     sellerEmail,
+    productId,
+    _id,
   } = booked;
+  // console.log(booked);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -75,6 +77,33 @@ const CheckoutForm = ({ booked }) => {
       return;
     }
     if (paymentIntent.status === "succeeded") {
+      // save payment data in db and update booking db product allso
+      const payment = {
+        transictionId: paymentIntent.id,
+        sellerEmail,
+        productName,
+        productId,
+        price,
+        buyerEmail,
+        bookingId: _id,
+      };
+      fetch("http://localhost:5000/payments", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.insertedId) {
+            // setSuccess("Your payment successful");
+            // setTransictionId(paymentIntent.id);
+            // setProcessing(false);
+          }
+        });
       setSuccess("Your payment successful");
       setTransictionId(paymentIntent.id);
       setProcessing(false);

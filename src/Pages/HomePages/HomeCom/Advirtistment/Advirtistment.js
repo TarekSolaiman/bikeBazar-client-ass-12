@@ -15,7 +15,7 @@ const Advirtistment = () => {
       return data;
     },
   });
-  if (isLoading) {
+  if (!advirticts.length) {
     return <></>;
   }
   return (

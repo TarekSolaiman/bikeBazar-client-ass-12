@@ -29,6 +29,7 @@ const AddProductModal = ({ setModal, refetch }) => {
       condition,
       category,
       useTime,
+      selleRison,
     } = data;
     const date = new Date();
     const postDate = format(date, "PP");
@@ -57,6 +58,7 @@ const AddProductModal = ({ setModal, refetch }) => {
             condition,
             category,
             useTime,
+            selleRison,
             available: "available",
             advirtict: false,
             sellerVerify: isVerify,
@@ -108,7 +110,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="file"
               id="productPhoto"
               placeholder="productPhoto"
-              className="input input-bordered w-full"
+              className="file-input file-input-bordered file-input-success w-full"
             />
             {errors.productPhoto && (
               <p className="text-sm text-red-500">
@@ -127,7 +129,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               id="email"
               readOnly
               value={user?.email}
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
           </div>
 
@@ -140,7 +142,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               {...register("condition", {
                 required: "Selact user condition must",
               })}
-              className="select select-bordered w-full"
+              className="select select-bordered input-success w-full"
               defaultValue="Select user condition"
             >
               <option>Good</option>
@@ -162,7 +164,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               {...register("category", {
                 required: "Selact user category must",
               })}
-              className="select select-bordered w-full"
+              className="select select-bordered input-success w-full"
               defaultValue="Select user category"
             >
               <option>Sports</option>
@@ -185,7 +187,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="useTime"
               id="useTime"
               placeholder="useTime"
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
             {errors.useTime && (
               <p className="text-sm text-red-500">{errors.useTime?.message}</p>
@@ -203,7 +205,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="location"
               id="location"
               placeholder="Location"
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
             {errors.location && (
               <p className="text-sm text-red-500">{errors.location?.message}</p>
@@ -221,7 +223,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="productName"
               id="productName"
               placeholder="productName"
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
             {errors.productName && (
               <p className="text-sm text-red-500">
@@ -241,7 +243,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="originalPrice"
               id="originalPrice"
               placeholder="originalPrice"
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
             {errors.originalPrice && (
               <p className="text-sm text-red-500">
@@ -261,7 +263,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="resalePrice"
               id="resalePrice"
               placeholder="resalePrice"
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
             {errors.resalePrice && (
               <p className="text-sm text-red-500">
@@ -280,7 +282,7 @@ const AddProductModal = ({ setModal, refetch }) => {
               id="sellerName"
               readOnly
               value={user?.displayName}
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
           </div>
 
@@ -295,11 +297,31 @@ const AddProductModal = ({ setModal, refetch }) => {
               type="phoneNumber"
               id="sellerMobile"
               placeholder="sellerMobile"
-              className="input input-bordered w-full"
+              className="input input-bordered input-success w-full"
             />
             {errors.sellerMobile && (
               <p className="text-sm text-red-500">
                 {errors.sellerMobile?.message}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-1 text-sm">
+            <label htmlFor="selleRison" className="block text-gray-400">
+              Selle Rison
+            </label>
+            <input
+              {...register("selleRison", {
+                required: "selleRison Address is required",
+              })}
+              type="text"
+              id="selleRison"
+              placeholder="selleRison"
+              className="input input-bordered input-success w-full"
+            />
+            {errors.selleRison && (
+              <p className="text-sm text-red-500">
+                {errors.selleRison?.message}
               </p>
             )}
           </div>

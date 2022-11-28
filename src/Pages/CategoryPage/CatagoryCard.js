@@ -18,6 +18,7 @@ const CatagoryCard = ({ product }) => {
     condition,
     useTime,
     sellerVerify,
+    selleRison,
   } = product;
 
   // repor button function
@@ -95,6 +96,13 @@ const CatagoryCard = ({ product }) => {
               <p className="text-base font-semibold">
                 Location : <span className="text-sm">{location}</span>
               </p>
+              {selleRison ? (
+                <p className="text-base font-semibold">
+                  Selle Rison : <span className="text-sm">{selleRison}</span>
+                </p>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
           <div className="space-y-3 text-center">

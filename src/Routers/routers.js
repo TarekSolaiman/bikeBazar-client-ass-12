@@ -44,11 +44,7 @@ export const routers = createBrowserRouter([
   },
   {
     path: "/dashbord",
-    element: (
-      <PrivateRoute>
-        <Dashbord />
-      </PrivateRoute>
-    ),
+    element: <Dashbord />,
     errorElement: <ErrorPage />,
     children: [
       {

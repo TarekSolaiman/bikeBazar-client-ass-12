@@ -33,7 +33,7 @@ const BookingList = () => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th></th>
+              <th>photo</th>
               <th>product Name</th>
               <th>price</th>
               <th>pay now</th>

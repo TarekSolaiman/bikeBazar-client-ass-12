@@ -18,6 +18,7 @@ const AdvirtisCard = ({ advirtict: product }) => {
     condition,
     useTime,
     sellerVerify,
+    selleRison,
     _id,
   } = product;
   // console.log(sellerVerify);
@@ -96,6 +97,13 @@ const AdvirtisCard = ({ advirtict: product }) => {
             <p className="text-base font-semibold">
               Location : <span className="text-sm">{location}</span>
             </p>
+            {selleRison ? (
+              <p className="text-base font-semibold">
+                Selle Rison : <span className="text-sm">{selleRison}</span>
+              </p>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
         <div className="space-y-3 text-center">

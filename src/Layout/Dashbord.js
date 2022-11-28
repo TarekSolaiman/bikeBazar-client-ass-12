@@ -36,9 +36,6 @@ const Dashbord = () => {
                   <Link to="/dashbord/myProduct">Product List</Link>
                 </li>
                 <li>
-                  <Link to="/dashbord/myProduct">Buyer List</Link>
-                </li>
-                <li>
                   <Link to="/dashbord/myOrders">Orders List</Link>
                 </li>
               </>

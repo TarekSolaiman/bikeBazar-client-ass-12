@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const BookedTable = ({ booked, i, refetch }) => {
-  const { productName, price, _id } = booked;
+  const { productName, price, _id, paid, productPhoto } = booked;
 
   // handleDelet for booking delete
   const bookedDelete = (id) => {
@@ -31,16 +31,30 @@ const BookedTable = ({ booked, i, refetch }) => {
   return (
     <>
       <tr className="hover">
-        <th>{i + 1}</th>
+        <th>
+          {productPhoto ? (
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
+                <img src={productPhoto} alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+          ) : (
+            "no"
+          )}
+        </th>
         <td>{productName}</td>
         <td>{price}</td>
         <td>
-          <Link
-            to={`/dashbord/payment/${_id}`}
-            className="btn btn-sm btn-success w-24"
-          >
-            pay
-          </Link>
+          {paid ? (
+            <button className="btn btn-sm btn-info w-24">Baid</button>
+          ) : (
+            <Link
+              to={`/dashbord/payment/${_id}`}
+              className="btn btn-sm btn-success w-24"
+            >
+              pay
+            </Link>
+          )}
         </td>
         <td>
           <button
