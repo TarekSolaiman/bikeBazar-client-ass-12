@@ -18,7 +18,7 @@ const Dashbord = () => {
         <div className="drawer-content mt-5">
           <Outlet />
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label htmlFor="sitebar" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 text-base-content">
             <li>
@@ -40,7 +40,7 @@ const Dashbord = () => {
                   <Link to="/dashbord/myOrders">Orders List</Link>
                 </li>
                 <li>
-                  <Link to="/dashbord/sellerPayment">My Payment</Link>
+                  <Link to="/dashbord/sellerPayment">Buyer Payment</Link>
                 </li>
               </>
             )}

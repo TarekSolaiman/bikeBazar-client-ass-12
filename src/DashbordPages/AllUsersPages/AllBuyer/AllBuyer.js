@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import useTitle from "../../../hooks/useTitle";
 import Loading from "../../../SharedPage/Loading";
 import BuyerCard from "./BuyerCard";
 
 const AllBuyer = () => {
+  useTitle("AllBuyer");
   const {
     data: buyers = [],
     isLoading,

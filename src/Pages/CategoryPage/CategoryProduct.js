@@ -3,8 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import Loading from "../../SharedPage/Loading";
 import CatagoryCard from "./CatagoryCard";
+import useTitle from "../../hooks/useTitle";
 
 const CategoryProduct = () => {
+  useTitle("Category");
   const { cat } = useParams();
   const { data: category = [], isLoading } = useQuery({
     queryKey: "category",
@@ -18,7 +20,7 @@ const CategoryProduct = () => {
       return data;
     },
   });
-  console.log(category);
+  // console.log(category);
   if (isLoading) {
     return <Loading />;
   }

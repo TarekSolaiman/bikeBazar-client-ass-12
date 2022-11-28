@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import Loading from "../../SharedPage/Loading";
 import AddProductModal from "./AddProductModal";
 import ProductTable from "./ProductTable";
 
 const MyProducts = () => {
+  useTitle("Dashbord-MyProduct");
   const [modal, setModal] = useState(true);
   const { user } = useContext(AuthContext);
 

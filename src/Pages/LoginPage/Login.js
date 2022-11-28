@@ -4,9 +4,11 @@ import { AuthContext } from "../../context/AuthProvider";
 import useToken from "../../hooks/useToken";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  useTitle("Login");
+  const { login, googlLogin } = useContext(AuthContext);
   const [emailId, setEmailid] = useState("");
   const [token] = useToken(emailId);
   const navigate = useNavigate();
@@ -21,19 +23,63 @@ const Login = () => {
   if (token) {
     navigate(from, { replace: true });
   }
+
+  // login with form
   const handleLogin = (data) => {
     const email = data.email;
     const password = data.password;
     login(email, password)
       .then((data) => {
-        console.log(data.user);
+        // console.log(data.user);
         setEmailid(email);
         toast.success("Successful login", {
           autoClose: 500,
         });
         reset();
       })
-      .catch((e) => console.log(e.message));
+      .catch((e) =>
+        toast.error(e.message, {
+          autoClose: 500,
+        })
+      );
+  };
+
+  // login with google
+  const googleHandle = () => {
+    googlLogin()
+      .then((data) => {
+        if (data?.user?.uid) {
+          // console.log(data?.user);
+          const name = data?.user?.displayName;
+          const email = data?.user?.email;
+          const role = "buyer";
+          saveUser(email, name, role);
+        }
+      })
+      .catch((e) =>
+        toast.error(e.message, {
+          autoClose: 500,
+        })
+      );
+  };
+
+  // user save db
+  const saveUser = (email, name, role) => {
+    const user = { email, name, role, sellerVerify: false };
+    fetch("http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setEmailid(email);
+        toast.success("Successful signup", {
+          autoClose: 500,
+        });
+      });
   };
   return (
     <div className="w-full max-w-md mx-auto my-40 p-8 space-y-3 rounded-xl bg-gray-100 text-gray-600">
@@ -98,7 +144,11 @@ const Login = () => {
         <div className="flex-1 h-px sm:w-16 bg-gray-600"></div>
       </div>
       <div className="flex justify-center space-x-4">
-        <button aria-label="Log in with Google" className="p-3 rounded-sm">
+        <button
+          aria-label="Log in with Google"
+          onClick={googleHandle}
+          className="p-3 rounded-sm"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"

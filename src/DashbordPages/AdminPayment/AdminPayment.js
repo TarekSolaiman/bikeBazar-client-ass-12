@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider";
+import React from "react";
+import useTitle from "../../hooks/useTitle";
 import Loading from "../../SharedPage/Loading";
 import AdminPaymentTable from "./AdminPaymentTable";
 
 const AdminPayment = () => {
+  useTitle("AllPaymnet");
   const { data: payments = [], isLoading } = useQuery({
     queryKey: "payments",
     queryFn: async () => {

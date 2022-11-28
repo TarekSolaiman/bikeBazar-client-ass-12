@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import useTitle from "../../../hooks/useTitle";
 import Loading from "../../../SharedPage/Loading";
 import ReportCard from "./ReportCard";
 
 const ReporedItem = () => {
+  useTitle("Dashbord-Rported");
   const {
     data: reportData = [],
     isLoading,
@@ -20,7 +22,7 @@ const ReporedItem = () => {
       return data;
     },
   });
-  console.log(reportData);
+  // console.log(reportData);
   if (isLoading) {
     return <Loading></Loading>;
   }

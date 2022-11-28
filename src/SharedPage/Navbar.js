@@ -19,33 +19,9 @@ const Navbar = () => {
   const linkList = (
     <>
       <li>
-        <Link className="font-semibold text-gray-500" to="/">
-          Home
+        <Link className="font-semibold text-gray-500" to="/blog">
+          Blog
         </Link>
-      </li>
-      <li>
-        <Link className="font-semibold text-gray-500" to="/reviow">
-          Reviow
-        </Link>
-      </li>
-      <li>
-        <Link className="font-semibold text-gray-500" to="/addservices">
-          Add Services
-        </Link>
-      </li>
-      <li>
-        <Link className="font-semibold text-gray-500" to="/users">
-          Users
-        </Link>
-      </li>
-
-      <li>
-        <label
-          htmlFor="sitebar"
-          className="btn btn-primary drawer-button lg:hidden"
-        >
-          Sitebar
-        </label>
       </li>
       {user?.email ? (
         <>
@@ -90,7 +66,15 @@ const Navbar = () => {
         <div className="items-center justify-end hidden w-full lg:flex md:w-auto md:order-1">
           <ul className="menu menu-horizontal p-0">{linkList}</ul>
         </div>
-        <div className="flex md:order-2 lg:hidden dropdown dropdown-end">
+        <div className="flex md:order-2 lg:hidden dropdown dropdown-end flex items-center">
+          {user?.email && (
+            <label
+              htmlFor="sitebar"
+              className="btn btn-primary drawer-button lg:hidden mr-3"
+            >
+              Sitebar
+            </label>
+          )}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="m-1">
               <svg

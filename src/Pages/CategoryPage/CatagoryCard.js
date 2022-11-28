@@ -19,6 +19,7 @@ const CatagoryCard = ({ product }) => {
     useTime,
     sellerVerify,
     selleRison,
+    _id,
   } = product;
 
   // repor button function
@@ -114,7 +115,7 @@ const CatagoryCard = ({ product }) => {
               Booked
             </label>
             <button
-              onClick={() => handleReport(product)}
+              onClick={() => handleReport(_id)}
               className="btn btn-error w-24"
             >
               Report

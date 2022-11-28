@@ -3,8 +3,10 @@ import { AuthContext } from "../../context/AuthProvider";
 import useAdmin from "../../hooks/useAdmin";
 import useSeller from "../../hooks/useSeller";
 import avatar from "../../assets/avatarImg.png";
+import useTitle from "../../hooks/useTitle";
 
 const Profile = () => {
+  useTitle("Dashbord-profile");
   const { user } = useContext(AuthContext);
   let role = "Buyer";
   const [isAdmin] = useAdmin(user.email);

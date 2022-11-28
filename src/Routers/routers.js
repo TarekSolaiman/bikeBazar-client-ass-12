@@ -12,6 +12,7 @@ import Profile from "../DashbordPages/ProfilePage/Profile";
 import SellerPayment from "../DashbordPages/SellerPayment/SellerPayment";
 import Dashbord from "../Layout/Dashbord";
 import Main from "../Layout/Main";
+import Bloge from "../Pages/BlogPages/Bloge";
 import CategoryProduct from "../Pages/CategoryPage/CategoryProduct";
 import Home from "../Pages/HomePages/Home";
 import Login from "../Pages/LoginPage/Login";
@@ -32,6 +33,10 @@ export const routers = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/blog",
+        element: <Bloge />,
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -47,7 +52,11 @@ export const routers = createBrowserRouter([
   },
   {
     path: "/dashbord",
-    element: <Dashbord />,
+    element: (
+      <PrivateRoute>
+        <Dashbord />
+      </PrivateRoute>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

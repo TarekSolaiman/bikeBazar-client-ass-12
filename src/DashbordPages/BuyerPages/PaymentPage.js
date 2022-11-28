@@ -3,10 +3,12 @@ import { useLoaderData } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
+import useTitle from "../../hooks/useTitle";
 
 const stripePromise = loadStripe(process.env.REACT_APP_stripe_key);
 
 const PaymentPage = () => {
+  useTitle("Dashbord-Payment");
   const booked = useLoaderData();
   return (
     <div>

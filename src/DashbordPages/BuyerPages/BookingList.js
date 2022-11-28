@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 import Loading from "../../SharedPage/Loading";
 import BookedTable from "./BookedTable";
 
 const BookingList = () => {
+  useTitle("Booking");
   const { user } = useContext(AuthContext);
   const {
     data: bookings = [],
