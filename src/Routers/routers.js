@@ -1,12 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import AdminPayment from "../DashbordPages/AdminPayment/AdminPayment";
 import AllBuyer from "../DashbordPages/AllUsersPages/AllBuyer/AllBuyer";
 import AllSeller from "../DashbordPages/AllUsersPages/AllSeller/AllSeller";
 import ReporedItem from "../DashbordPages/AllUsersPages/Reporteditem/ReporedItem";
 import BookingList from "../DashbordPages/BuyerPages/BookingList";
+import Mypayment from "../DashbordPages/BuyerPages/Mypayment";
 import PaymentPage from "../DashbordPages/BuyerPages/PaymentPage";
 import MyOrders from "../DashbordPages/MyOrdersPages/MyOrders";
 import MyProducts from "../DashbordPages/MyProductsPages/MyProducts";
 import Profile from "../DashbordPages/ProfilePage/Profile";
+import SellerPayment from "../DashbordPages/SellerPayment/SellerPayment";
 import Dashbord from "../Layout/Dashbord";
 import Main from "../Layout/Main";
 import CategoryProduct from "../Pages/CategoryPage/CategoryProduct";
@@ -64,6 +67,14 @@ export const routers = createBrowserRouter([
         ),
       },
       {
+        path: "/dashbord/myPayment",
+        element: (
+          <PrivateRoute>
+            <Mypayment />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/dashbord/payment/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/booked/payment/${params.id}`),
@@ -98,6 +109,14 @@ export const routers = createBrowserRouter([
         ),
       },
       {
+        path: "/dashbord/adminPayment",
+        element: (
+          <AdminRoute>
+            <AdminPayment />
+          </AdminRoute>
+        ),
+      },
+      {
         path: "/dashbord/myProduct",
         element: (
           <SellerRout>
@@ -110,6 +129,14 @@ export const routers = createBrowserRouter([
         element: (
           <SellerRout>
             <MyOrders />
+          </SellerRout>
+        ),
+      },
+      {
+        path: "/dashbord/sellerPayment",
+        element: (
+          <SellerRout>
+            <SellerPayment />
           </SellerRout>
         ),
       },

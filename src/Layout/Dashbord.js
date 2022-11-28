@@ -28,8 +28,9 @@ const Dashbord = () => {
               <Link to="/dashbord/booked">Booking List</Link>
             </li>
             <li>
-              <Link to="/dashbord">Wish List</Link>
+              <Link to="/dashbord/myPayment">My Payment</Link>
             </li>
+
             {isSeller && (
               <>
                 <li>
@@ -37,6 +38,9 @@ const Dashbord = () => {
                 </li>
                 <li>
                   <Link to="/dashbord/myOrders">Orders List</Link>
+                </li>
+                <li>
+                  <Link to="/dashbord/sellerPayment">My Payment</Link>
                 </li>
               </>
             )}
@@ -51,6 +55,9 @@ const Dashbord = () => {
                 </li>
                 <li>
                   <Link to="/dashbord/report">Reported Item</Link>
+                </li>
+                <li>
+                  <Link to="/dashbord/adminPayment">Payment Detail</Link>
                 </li>
               </>
             )}
