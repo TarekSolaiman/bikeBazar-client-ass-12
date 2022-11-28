@@ -1,6 +1,11 @@
 //============================Website Deteile =============================//
 
+Client Site Link : https://github.com/programming-hero-web-course-4/b612-used-products-resale-clients-side-TarekSolaiman
+
+Server Site Link : https://github.com/programming-hero-web-course-4/b612-used-products-resale-server-side-TarekSolaiman
+
 Live site link : https://bikebazar-91eaa.web.app/
+
 Admin id : sobuj@gamil.com
 Admin password : A@123456
 
