@@ -55,9 +55,9 @@ const BookedModal = ({ produtcData, setProdutcData }) => {
     setProdutcData(null);
   };
   return (
-    <>
+    <div className="">
       <input type="checkbox" id="bookedModal" className="modal-toggle" />
-      <div className="modal">
+      <div className="modal pt-24">
         <div className="modal-box">
           <h3 className="font-bold text-lg">
             Congratulations random Internet user!
@@ -163,7 +163,7 @@ const BookedModal = ({ produtcData, setProdutcData }) => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

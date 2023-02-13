@@ -90,7 +90,7 @@ const AddProductModal = ({ setModal, refetch }) => {
       .catch((e) => console.log(e.message));
   };
   return (
-    <div className="modal top-20" id="my-modal-2">
+    <div className="modal pt-24" id="my-modal-2">
       <div className="modal-box">
         <h3 className="font-bold text-lg">
           Fillup all details and submit your product
