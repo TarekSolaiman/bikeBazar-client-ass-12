@@ -18,21 +18,21 @@ const Navbar = () => {
 
   const linkList = (
     <>
-      <li>
-        <Link className="font-semibold text-gray-500" to="/blog">
+      <li className="my-2 lg:my-0">
+        <Link className="btnPrimary flex justify-center" to="/blog">
           Blog
         </Link>
       </li>
       {user?.email ? (
         <>
-          <li>
-            <Link className="font-semibold text-gray-500" to="/dashbord">
+          <li className="my-2 lg:my-0">
+            <Link className="btnPrimary flex justify-center" to="/dashbord">
               Dashbord
             </Link>
           </li>
-          <li>
+          <li className="my-2 lg:my-0">
             <button
-              className="font-semibold text-gray-500"
+              className="btnPrimary flex justify-center"
               onClick={handleLogout}
             >
               LogOut
@@ -41,8 +41,8 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <li>
-            <Link className="font-semibold text-gray-500" to="/login">
+          <li className="my-2 lg:my-0">
+            <Link className="btnPrimary flex justify-center" to="/login">
               Login
             </Link>
           </li>
@@ -51,15 +51,15 @@ const Navbar = () => {
     </>
   );
   return (
-    <nav className="container py-2.5 w-full mx-auto">
-      <div className="flex flex-wrap items-center justify-between">
+    <nav className="container mx-auto sticky top-0  z-[9999] py-1">
+      <div className="px-4 py-0 lg:py-4 sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8  rounded-lg backdrop-filter backdrop-blur-lg bg-opacity-80 border shadow border-gray-200 flex flex-wrap items-center justify-between bg-accent">
         <Link to="/" className="flex items-center">
           <img
             src={logo}
             className="w-12 h-14 rounded-full mr-3 sm:h-9"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-2xl font-bold text-blue-500 whitespace-nowrap">
+          <span className="self-center text-xl lg:text-2xl font-bold text-[#ffbf00] whitespace-nowrap">
             BIKE Bazar
           </span>
         </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
           {user?.email && (
             <label
               htmlFor="sitebar"
-              className="btn btn-primary drawer-button lg:hidden mr-3"
+              className="font-semibold rounded-lg ml-8 my-2 lg:my-0 p-1 flex justify-center hover:bg-secondary hover:text-white border-2 border-secondary text-secondary"
             >
               Sitebar
             </label>
@@ -78,7 +78,7 @@ const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="m-1">
               <svg
-                className="w-8 h-8"
+                className="w-8 h-8 text-white"
                 aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"

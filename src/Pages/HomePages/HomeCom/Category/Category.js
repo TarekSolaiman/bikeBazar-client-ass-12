@@ -8,7 +8,7 @@ const Category = () => {
   return (
     <div className="mb-40">
       <h1 className="text-3xl text-center font-bold mb-10">
-        Ouer Product Category
+      OUR PRODUCTS CATEGORY
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         <Link to={`/category/${"Sports"}`}>
@@ -19,7 +19,7 @@ const Category = () => {
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-            <p>Sports</p>
+            <p>SPORTS</p>
           </button>
         </Link>
         <Link to={`/category/${"Electric"}`}>
@@ -30,7 +30,7 @@ const Category = () => {
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-            <p>Electric</p>
+            <p>ELECTRIC</p>
           </button>
         </Link>
         <Link to={`/category/${"Scooty"}`}>
@@ -41,7 +41,7 @@ const Category = () => {
             }}
           >
             <div className="hero-overlay bg-opacity-60 rounded-lg"></div>
-            <p>Scooty</p>
+            <p>SCOOTY</p>
           </button>
         </Link>
       </div>

@@ -82,8 +82,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="w-full max-w-md mx-auto my-40 p-8 space-y-3 rounded-xl bg-gray-100 text-gray-600">
-      <h1 className="text-2xl font-bold text-center">Login</h1>
+    <div className="w-full max-w-md mx-auto my-40 p-8 space-y-3 rounded-xl bg-[#25acfa21] text-gray-600">
+      <h1 className="text-2xl font-bold text-center">Log in</h1>
       <form
         onSubmit={handleSubmit(handleLogin)}
         className="space-y-6 ng-untouched ng-pristine ng-valid"
@@ -133,9 +133,9 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="block w-full p-3 text-center rounded-sm text-white font-semibold bg-blue-500"
+          className="block w-full p-3 text-center rounded-md hover:text-white font-semibold bg-secondary hover:bg-[#fcb213] text-gray-800 ease-in-out duration-500"
         >
-          Login
+          Log in
         </button>
       </form>
       <div className="flex items-center pt-4 space-x-1">

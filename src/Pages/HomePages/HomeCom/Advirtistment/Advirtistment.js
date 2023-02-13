@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import MainButton from "../../../../SharedPage/MainButton";
 import AdvirtisCard from "./AdvirtisCard";
 
 const Advirtistment = () => {
@@ -24,7 +25,7 @@ const Advirtistment = () => {
   return (
     <div className="my-40">
       <h1 className="text-3xl text-center font-bold mb-10">
-        Ouer Best Products For Advirtistment
+      OUR BEST PRODUCTS
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {advirticts.map((advirtict) => (
@@ -32,7 +33,7 @@ const Advirtistment = () => {
         ))}
       </div>
       <div className=" text-center my-10">
-        <button className="btn btn-primary">See More Advirtis</button>
+      <MainButton btnName={'All Advirtisment'}/>
       </div>
     </div>
   );

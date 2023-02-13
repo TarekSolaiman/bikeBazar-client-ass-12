@@ -151,13 +151,13 @@ const BookedModal = ({ produtcData, setProdutcData }) => {
             </div>
 
             <div className="modal-action flex justify-center">
-              <button className="btn btn-success w-24 mr-3">Booked</button>
+              <button className="btn btn-sm btn-success w-24 mr-3">Booked</button>
               <label
                 htmlFor="bookedModal"
                 onClick={canselBtn}
-                className="btn btn-error w-24"
+                className="btn btn-sm btn-error w-24"
               >
-                cansel
+                Exit
               </label>
             </div>
           </form>

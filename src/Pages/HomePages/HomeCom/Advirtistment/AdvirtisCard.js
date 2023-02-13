@@ -41,7 +41,7 @@ const AdvirtisCard = ({ advirtict: product }) => {
   };
 
   return (
-    <div className="rounded-md shadow-md hover:shadow-xl w-full text-gray-500">
+    <div className="rounded-md shadow-md hover:shadow-xl w-full bg-[#25acfa21] text-gray-700">
       <div className="flex items-center justify-between p-3">
         <div className="flex items-center space-x-2">
           <img
@@ -82,44 +82,45 @@ const AdvirtisCard = ({ advirtict: product }) => {
       />
       <div className="p-3">
         <div className="flex flex-wrap items-center pb-3">
-          <div className="">
-            <p className="text-base font-semibold">Model : {productName}</p>
-            <p className="text-base font-semibold">Condition : {condition}</p>
-            <p className="text-base font-semibold">Post Time : {postDate}</p>
-            <p className="text-base font-semibold">UseTime : {useTime}</p>
-            <p className="text-base font-semibold text-red-600">
-              Original Price : {originalPrice} tk
-            </p>
-            <p className="text-base font-semibold text-green-600">
-              Recale Price : {resalePrice} tk
-            </p>
-            <p className="text-base font-semibold">Mobile : {sellerMobile}</p>
-            <p className="text-base font-semibold">
-              Location : <span className="text-sm">{location}</span>
-            </p>
-            {selleRison ? (
-              <p className="text-base font-semibold">
-                Selle Rison : <span className="text-sm">{selleRison}</span>
+        <div className="">
+              <p className="text-base font-semibold">Model : {productName}</p>
+              <p className="text-base font-semibold">Post Time : {postDate}</p>
+              <p className="text-base font-semibold">Condition : {condition}</p>
+              <p className="text-base font-semibold">Duration of Use  : {useTime}</p>
+              <p className="text-base font-semibold text-red-600">
+                Original Price : {originalPrice} tk
               </p>
-            ) : (
-              <></>
-            )}
-          </div>
+              <p className="text-base font-semibold text-green-600">
+              Resale Price : {resalePrice} tk
+              </p>
+              <p className="text-base font-semibold">Mobile : {sellerMobile}</p>
+              <p className="text-base font-semibold">
+                Location : <span className="text-sm">{location}</span>
+              </p>
+              {selleRison ? (
+                <p className="text-base font-semibold">
+                  Sell Reason : <span className="text-sm">{selleRison}</span>
+                </p>
+              ) : (
+                <></>
+              )}
+            </div>
         </div>
-        <div className="space-y-3 text-center">
-          <label
+        <div className="space-y-3 text-center my-3">
+            <label
             htmlFor="bookedModal"
             onClick={() => setProdutcData(product)}
-            className="btn btn-success w-24 mr-3"
+            className="w-[9rem] h-[2.8rem] rounded-full btn bg-secondary border-none text-gray-800 font-semibold text-lg hover:bg-[#fcb213] hover:text-gray-100 ease-in-out duration-500 mr-2"
           >
-            Booked
-          </label>
-          <button
-            onClick={() => handleReport(_id)}
-            className="btn btn-error w-24"
-          >
-            Report
-          </button>
+              Booked
+              </label>
+            
+            <button
+              onClick={() => handleReport(_id)}
+              className="w-[9rem] h-[2.8rem] rounded-full btn bg-red-400 font-semibold text-lg hover:bg-[#fc4513] border-none text-gray-800 hover:text-gray-100 ease-in-out duration-500"
+            >
+              Report
+            </button>
         </div>
         {produtcData && (
           <BookedModal

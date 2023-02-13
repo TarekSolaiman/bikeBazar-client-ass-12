@@ -10,7 +10,7 @@ const About = () => {
           alt=""
           className="w-full h-60 sm:h-96 bg-gray-500"
         />
-        <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md bg-blue-500">
+        <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md backdrop-filter backdrop-blur-lg bg-opacity-80 bg-accent">
           <div className="space-y-2 text-justify">
             <p className="inline-block text-2xl font-semibold sm:text-3xl">
               This is Best trusted bazar for bike sell and buy

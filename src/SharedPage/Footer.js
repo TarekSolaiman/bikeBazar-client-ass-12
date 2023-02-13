@@ -3,11 +3,13 @@ import logo from "../assets/bikeLogo.png";
 
 const Footer = () => {
   return (
-    <footer className="container mx-auto footer p-10 bg-base-200 text-base-content">
+  <div className="container mx-auto">
+    <footer className="footer rounded-lg p-10 backdrop-filter backdrop-blur-lg bg-opacity-90 bg-accent text-white">
+      
       <div>
         <div className="flex flex-wrap items-center justify-between">
           <img className="w-12 rounded-full mr-2" src={logo} alt="" />
-          <span className="self-center text-2xl font-bold text-blue-500 whitespace-nowrap">
+          <span className="self-center text-2xl font-bold text-[#ffbf00] whitespace-nowrap">
             BIKE Bazar
           </span>
         </div>
@@ -37,7 +39,9 @@ const Footer = () => {
         <p className="link link-hover">Privacy policy</p>
         <p className="link link-hover">Cookie policy</p>
       </div>
+      
     </footer>
+  </div>
   );
 };
 

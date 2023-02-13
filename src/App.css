@@ -3,6 +3,33 @@
   
 }
 
+.carousel .carousel-status{
+  visibility: hidden;
+}
+
+.carousel .control-dots .dot {
+  margin: 28px 10px !important;
+  height: 10px !important;
+  width: 10px !important;
+} 
+
+.btnPrimary {
+  margin-left: 1em ;
+  background: #ffbf00;
+  color: rgb(28, 25, 33);
+  font-size: 17px;
+  font-weight: 500;
+  border-radius: 25px;
+  letter-spacing: 0.05em;
+  box-shadow: inset 0.1em 0.1em 0.6em 0.2em #ffbf00;
+  height: 2.5em;
+  width: 7em;
+ }
+
+ .btnPrimary:hover {
+  background: #f7c624;
+  box-shadow: inset 0.1em 0.1em 0.6em 0.2em #fa8602
+ }
 
 .App-logo {
   height: 40vmin;
@@ -38,3 +65,5 @@
     transform: rotate(360deg);
   }
 }
+
+

@@ -28,8 +28,8 @@ const CategoryProduct = () => {
     return <Loading />;
   }
   return (
-    <div className="my-20">
-      <h1 className="text-5xl text-center mb-10">category Page</h1>
+    <div className="container mx-auto my-20">
+      <h1 className="text-5xl text-center mb-10">Products Category</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {category.map((product) => (
           <CatagoryCard key={product._id} product={product}></CatagoryCard>

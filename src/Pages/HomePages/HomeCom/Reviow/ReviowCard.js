@@ -3,7 +3,8 @@ import avatar from "../../../../assets/avatarImg.png";
 
 const ReviowCard = () => {
   return (
-    <div className="container shadow-md flex flex-col w-full p-6 mx-auto divide-y rounded-md text-gray-500">
+    <div className="container flex flex-col w-full p-6 mx-auto divide-y rounded-md
+    backdrop-filter backdrop-blur-lg bg-opacity-20 border shadow-lg bg-blue-300 text-gray-700">
       <div className="flex justify-between p-4">
         <div className="flex space-x-4">
           <div>
@@ -15,7 +16,7 @@ const ReviowCard = () => {
           </div>
           <div>
             <h4 className="font-bold">Leroy Jenkins</h4>
-            <span className="text-xs text-gray-400">2 days ago</span>
+            <span className="text-xs">2 days ago</span>
           </div>
         </div>
         <div className="flex items-center space-x-2 dark:text-yellow-500">
@@ -29,7 +30,7 @@ const ReviowCard = () => {
           <span className="text-xl font-bold">4.5</span>
         </div>
       </div>
-      <div className="p-4 space-y-2 text-sm dark:text-gray-400">
+      <div className="p-4 space-y-2 text-sm text-justify">
         <p>
           Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum
           lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.

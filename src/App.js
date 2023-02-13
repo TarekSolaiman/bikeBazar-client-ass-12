@@ -4,7 +4,7 @@ import { routers } from "./Routers/routers";
 
 function App() {
   return (
-    <div className="max-w-[1240px] mx-auto">
+    <div >
       <RouterProvider router={routers}></RouterProvider>
     </div>
   );

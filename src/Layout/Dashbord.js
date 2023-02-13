@@ -15,31 +15,31 @@ const Dashbord = () => {
       <Navbar />
       <div className="drawer drawer-mobile container mx-auto">
         <input id="sitebar" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content mt-5">
+        <div className="drawer-content mt-5 lg:mx-5">
           <Outlet />
         </div>
-        <div className="drawer-side ">
+        <div className="drawer-side lg:backdrop-filter lg:backdrop-blur-lg lg:bg-opacity-20 lg:bg-blue-300">
           <label htmlFor="sitebar" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 text-base-content">
-            <li>
+          <ul className="menu p-4 w-80 text-base-content text-lg font-semibold">
+            <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
               <Link to="/dashbord">Profile</Link>
             </li>
-            <li>
+            <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
               <Link to="/dashbord/booked">Booking List</Link>
             </li>
-            <li>
+            <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
               <Link to="/dashbord/myPayment">My Payment</Link>
             </li>
 
             {isSeller && (
               <>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/myProduct">Product List</Link>
                 </li>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/myOrders">Orders List</Link>
                 </li>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/sellerPayment">Buyer Payment</Link>
                 </li>
               </>
@@ -47,16 +47,16 @@ const Dashbord = () => {
 
             {isAdmin && (
               <>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/buyers">All Buyers</Link>
                 </li>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/sellers">All Sellers</Link>
                 </li>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/report">Reported Item</Link>
                 </li>
-                <li>
+                <li className="bg-[#6969691d] hover:bg-[#fbc663c6] rounded-md mb-3">
                   <Link to="/dashbord/adminPayment">Payment Detail</Link>
                 </li>
               </>
